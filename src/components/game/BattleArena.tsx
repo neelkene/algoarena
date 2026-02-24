@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import HealthBar from "./HealthBar";
-import { getRandomChallenge, stolenCodeRewards, type Challenge } from "@/data/challenges";
+import { getAIChallenge, getRandomChallenge, stolenCodeRewards, type Challenge } from "@/data/challenges";
 import playerRobotImg from "@/assets/player-robot.png";
 import aiRobotImg from "@/assets/ai-robot.png";
 
@@ -124,11 +124,15 @@ const BattleArena = ({ language, difficulty, level, onVictory, onDefeat }: Battl
             setShowSparks(null);
             setScreenShake(false);
             if (playerHP - dmg > 0) {
-              setChallenge(getRandomChallenge(language, difficulty));
-              setAnswer("");
-              setShowHint(false);
-              setPhase("player-turn");
+              // Use AI-generated challenge, falls back to static if fails
+              getAIChallenge(language, difficulty).then(c => {
+                setChallenge(c);
+                setAnswer("");
+                setShowHint(false);
+                setPhase("player-turn");
+              });
             }
+
           }, 700);
         }, 400);
       }, 500);
