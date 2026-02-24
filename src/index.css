@@ -112,4 +112,61 @@
       hsl(var(--primary) / 0.03) 4px
     );
   }
+
+  /* Flying robot thruster glow */
+  .thruster-glow-cyan {
+    filter: drop-shadow(0 8px 16px hsl(195 100% 50% / 0.6))
+            drop-shadow(0 16px 32px hsl(195 100% 50% / 0.3));
+  }
+  .thruster-glow-orange {
+    filter: drop-shadow(0 8px 16px hsl(25 95% 55% / 0.6))
+            drop-shadow(0 16px 32px hsl(25 95% 55% / 0.3));
+  }
+
+  /* Energy beam effect */
+  .energy-beam {
+    background: linear-gradient(90deg, 
+      hsl(195 100% 50% / 0), 
+      hsl(195 100% 50% / 0.8), 
+      hsl(195 100% 70% / 1), 
+      hsl(195 100% 50% / 0.8), 
+      hsl(195 100% 50% / 0));
+    box-shadow: 0 0 20px hsl(195 100% 50% / 0.6), 0 0 40px hsl(195 100% 50% / 0.3);
+  }
+  .energy-beam-orange {
+    background: linear-gradient(90deg, 
+      hsl(25 95% 55% / 0), 
+      hsl(25 95% 55% / 0.8), 
+      hsl(25 95% 70% / 1), 
+      hsl(25 95% 55% / 0.8), 
+      hsl(25 95% 55% / 0));
+    box-shadow: 0 0 20px hsl(25 95% 55% / 0.6), 0 0 40px hsl(25 95% 55% / 0.3);
+  }
+
+  /* Particle spark */
+  .spark {
+    border-radius: 50%;
+    background: hsl(var(--neon-cyan));
+    box-shadow: 0 0 6px hsl(var(--neon-cyan)), 0 0 12px hsl(var(--neon-cyan) / 0.5);
+  }
+  .spark-orange {
+    border-radius: 50%;
+    background: hsl(var(--neon-orange));
+    box-shadow: 0 0 6px hsl(var(--neon-orange)), 0 0 12px hsl(var(--neon-orange) / 0.5);
+  }
+
+  /* Arena floor grid */
+  .arena-grid-floor {
+    background-image: 
+      linear-gradient(hsl(var(--primary) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Shield bubble */
+  .shield-bubble {
+    border: 2px solid hsl(var(--neon-cyan) / 0.4);
+    border-radius: 50%;
+    box-shadow: inset 0 0 30px hsl(var(--neon-cyan) / 0.1), 0 0 20px hsl(var(--neon-cyan) / 0.2);
+  }
 }
